@@ -1,108 +1,235 @@
-# System - JT Position Finder
+# JT Position Finder
 
-**JT Position Finder** is a Joomla administrator plugin that adds an accessible position finder to the module edit screen.
+<p align="center">
+  <strong>Accessible Visual Module Position Finder for Joomla Administrator</strong>
+</p>
 
-It helps site administrators quickly search, browse, and select module positions grouped by template, without manually guessing position names.
+<p align="center">
+  Find, search, preview and select Joomla module positions directly from the module edit screen.
+</p>
 
-Developed by [JoomTheme](https://joomtheme.com).
+<p align="center">
+  <strong>Joomla 6.1+</strong> • <strong>PHP 8.3+</strong> • <strong>Atum Compatible</strong> • <strong>No Core Hacks</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/joomtheme/JT-Position-Finder/releases">
+    <img src="https://img.shields.io/github/v/release/joomtheme/JT-Position-Finder?label=release" alt="Release">
+  </a>
+  <a href="https://github.com/joomtheme/JT-Position-Finder/blob/main/LICENSE.txt">
+    <img src="https://img.shields.io/badge/license-GPL--2.0--or--later-blue" alt="License">
+  </a>
+  <img src="https://img.shields.io/badge/Joomla-6.1%2B-green" alt="Joomla 6.1+">
+  <img src="https://img.shields.io/badge/PHP-8.3%2B-purple" alt="PHP 8.3+">
+</p>
 
 ---
 
-## Features
+## Overview
 
-- Adds a **Find Position** button to the Joomla module edit screen
-- Displays available module positions in an accessible modal
-- Groups module positions by template
-- Shows whether a position is already used or unused
-- Highlights the currently selected position
-- Supports custom/manual position values
-- Supports keyboard navigation
-- Provides basic accessibility support
-- Uses Joomla administrator UI conventions
-- Built for the **Atum** administrator template
-- Uses **Bootstrap 5** classes provided by Joomla
-- No external CSS framework
-- No heavy UI dependency
+**JT Position Finder** is a lightweight Joomla administrator plugin that improves the module position selection workflow.
+
+When editing a Joomla module, finding the correct template position can be time-consuming, especially on websites with multiple templates, many module positions or complex layouts.
+
+JT Position Finder adds a visual **Find position** helper directly below the native Joomla module position field. Administrators can search, preview and select available template module positions from an accessible modal interface.
+
+The plugin keeps Joomla’s original module position field intact. It does not replace Joomla core behavior, does not modify administrator template files and does not change Bootstrap or template assets.
 
 ---
 
-## Accessibility
+## Demo
 
-JT Position Finder includes accessibility-focused behavior for the modal and result list.
+View demo screenshots here:
 
-Supported accessibility features include:
+[Demo Screenshots](https://github.com/joomtheme/JT-Position-Finder/tree/main/docs/demo)
 
-- `role="dialog"`
-- `aria-modal`
-- `aria-describedby`
-- `aria-live` result announcements
+### Light Mode
+
+![JT Position Finder button in Joomla administrator light mode](docs/demo/images/jt_admin_module_find_button.png)
+
+![JT Position Finder modal in Joomla administrator light mode](docs/demo/images/jt_admin_module_modal.png)
+
+### Dark Mode
+
+![JT Position Finder button in Joomla administrator dark mode](docs/demo/images/jt_admin_module_find_button_dark.png)
+
+![JT Position Finder modal in Joomla administrator dark mode](docs/demo/images/jt_admin_module_modal_dark.png)
+
+---
+
+## Key Features
+
+- Visual module position finder for Joomla Administrator
+- Adds a **Find position** button to the module edit screen
+- Search module positions by template or position name
+- Lists available positions grouped by template
+- Shows used and unused position indicators
+- Supports custom position values
+- Works directly inside the native Joomla module edit screen
+- Compatible with Joomla Administrator light mode
+- Compatible with Joomla Administrator dark mode
+- Designed for the Atum administrator template
+- Keyboard-friendly modal behavior
 - ESC key support
-- Focus trap inside the modal
-- Focus return after closing
-- Keyboard navigation for position results
-- Clear button labels for screen readers
+- Focus-friendly interface
+- Screen-reader friendly modal structure
+- Multilingual ready
+- English and Turkish language files included
+- Joomla Web Asset Manager based
+- No Joomla core modifications
+- No Atum administrator template modifications
+- No Bootstrap core modifications
+- No frontend template modifications
+- No external CSS framework
+- No CDN dependency
 
 ---
 
-## Requirements
+## Why JT Position Finder?
 
-- Joomla **6.1+**
-- PHP **8.3+**
-- Joomla Administrator template: **Atum**
-- Modern browser with JavaScript enabled
+Joomla module positions are powerful, but selecting the correct position can be difficult when working with multiple templates or complex layouts.
+
+Normally, administrators may need to remember position names, check template documentation or inspect template files.
+
+JT Position Finder solves this by making module positions visible, searchable and selectable directly inside the administrator module edit screen.
+
+It focuses on one clear purpose:
+
+> Make Joomla module position selection easier, faster and more accessible while preserving Joomla’s native architecture.
 
 ---
 
 ## Installation
 
-1. Download the latest release ZIP file from GitHub Releases.
-2. In Joomla Administrator, go to:
+1. Download the latest installable package from GitHub Releases:
 
-   `System -> Install -> Extensions`
+   ```text
+   plg_system_jtpositionfinder_v1.0.3.zip
+   ```
 
-3. Upload the package:
+2. Open Joomla Administrator.
 
-   `plg_system_jtpositionfinder_vX.X.X.zip`
+3. Go to:
 
-4. Go to:
+   ```text
+   System → Install Extensions
+   ```
 
-   `System -> Manage -> Plugins`
+4. Upload and install the package.
 
-5. Search for:
+5. Go to:
 
-   `System - JT Position Finder`
+   ```text
+   System → Plugins
+   ```
 
-6. Enable the plugin.
+6. Search for:
+
+   ```text
+   System - JT Position Finder
+   ```
+
+7. Enable the plugin.
+
+8. Open:
+
+   ```text
+   Content → Site Modules
+   ```
+
+9. Create or edit a module.
+
+10. Use the **Find position** button below the Position field.
 
 ---
 
-## Usage
+## How It Works
 
-1. Open Joomla Administrator.
-2. Go to:
+1. JT Position Finder loads only in the Joomla Administrator module edit screen.
+2. It detects the native Joomla module position field.
+3. It adds a **Find position** helper button below the field.
+4. When clicked, an accessible modal opens.
+5. Available template positions are displayed and searchable.
+6. The selected position is inserted into the original Joomla module position field.
 
-   `Content -> Site Modules`
-
-3. Edit an existing module or create a new one.
-4. Locate the **Position** field.
-5. Click the **Find Position** button.
-6. Search or browse positions grouped by template.
-7. Select a position.
-8. The selected position is applied to the module position field.
+The original Joomla field remains available and unchanged.
 
 ---
 
-## Update Server
+## Compatibility
 
-This extension supports Joomla update server integration.
+| Requirement | Status |
+| --- | --- |
+| Joomla 6.1+ | Supported |
+| PHP 8.3+ | Supported |
+| Joomla Administrator | Supported |
+| Atum Administrator Template | Supported |
+| Light Mode | Supported |
+| Dark Mode | Supported |
+| Web Asset Manager | Used |
+| System Plugin | Yes |
+| Joomla Core Hacks | No |
+| Bootstrap Core Changes | No |
+| External CDN | No |
 
-Update XML:
+---
 
-`https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/update.xml`
+## Accessibility
 
-Changelog XML:
+Accessibility is an important part of JT Position Finder.
 
-`https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/changelog.xml`
+The modal interface is designed to support a better administrator workflow with:
+
+- Keyboard navigation
+- ESC close behavior
+- Focus handling
+- Clear button labels
+- Screen-reader friendly modal structure
+- Searchable position list
+- Readable usage indicators
+
+This makes the extension useful for developers, site builders, agencies, administrators and users who manage complex Joomla module layouts.
+
+---
+
+## Light and Dark Mode
+
+JT Position Finder works naturally with Joomla Administrator light and dark modes.
+
+The plugin does not add a custom CSS framework and does not override Atum or Bootstrap core styling.
+
+It uses Joomla administrator interface conventions and Bootstrap-compatible markup to keep the experience familiar and consistent.
+
+---
+
+## No Core Modifications
+
+JT Position Finder does **not** modify:
+
+- Joomla core files
+- Joomla administrator template files
+- Atum files
+- Bootstrap files
+- Frontend template files
+- Module files
+
+The plugin works through Joomla’s extension system and Joomla Web Asset Manager.
+
+---
+
+## Recommended Use Cases
+
+JT Position Finder is useful for:
+
+- Joomla site builders
+- Template developers
+- Web agencies
+- Joomla administrators
+- Multilingual websites
+- Complex module layouts
+- Sites using many module positions
+- Users who want a faster module editing workflow
+- Users who prefer a visual and searchable position selector
 
 ---
 
@@ -110,48 +237,131 @@ Changelog XML:
 
 ```text
 JT-Position-Finder/
+├── plg_system_jtpositionfinder.xml
+├── README.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── LICENSE.txt
+├── services/
+│   └── provider.php
+├── src/
+│   └── Extension/
+│       └── Jtpositionfinder.php
+├── language/
+│   ├── en-GB/
+│   │   ├── plg_system_jtpositionfinder.ini
+│   │   └── plg_system_jtpositionfinder.sys.ini
+│   └── tr-TR/
+│       ├── plg_system_jtpositionfinder.ini
+│       └── plg_system_jtpositionfinder.sys.ini
+├── media/
+│   ├── joomla.asset.json
+│   └── js/
+│       └── jt-position-finder.js
 ├── updates/
 │   ├── update.xml
 │   └── changelog.xml
-├── README.md
-└── release packages
-```
-
-The installable Joomla plugin package is distributed through GitHub Releases.
-
----
-
-## Release Package
-
-The Joomla installable package format is:
-
-```text
-plg_system_jtpositionfinder_vX.X.X.zip
-```
-
-Example:
-
-```text
-plg_system_jtpositionfinder_v1.0.2.zip
+└── docs/
+    └── demo/
+        ├── README.md
+        └── images/
+            ├── jt_admin_module_find_button.png
+            ├── jt_admin_module_find_button_dark.png
+            ├── jt_admin_module_modal.png
+            └── jt_admin_module_modal_dark.png
 ```
 
 ---
 
-## GitHub Release Notes Example
+## Release Packages
+
+Installable ZIP packages are published under GitHub Releases.
+
+The repository contains the source files, update server metadata and documentation.
+
+Download the latest installable package from:
+
+[GitHub Releases](https://github.com/joomtheme/JT-Position-Finder/releases)
+
+Package name:
 
 ```text
-System - JT Position Finder 1.0.2
-
-Stable release for Joomla 6.1+.
-
-Highlights:
-- Adds an accessible module position finder to the Joomla module edit screen
-- Groups positions by template
-- Supports used/unused status badges
-- Supports custom position values
-- Uses Joomla Atum and Bootstrap 5 UI conventions
-- Includes Joomla update server and changelog support
+plg_system_jtpositionfinder_v1.0.3.zip
 ```
+
+---
+
+## Joomla Update Server
+
+JT Position Finder includes Joomla update server metadata.
+
+Update files are stored in:
+
+```text
+updates/update.xml
+updates/changelog.xml
+```
+
+These files are used by the Joomla Update System to detect and install extension updates.
+
+---
+
+## Language Support
+
+Included language files:
+
+```text
+English: en-GB
+Turkish: tr-TR
+```
+
+Language files are stored in:
+
+```text
+language/en-GB/
+language/tr-TR/
+```
+
+---
+
+## Security
+
+JT Position Finder is an administrator plugin and follows a minimal, core-safe approach.
+
+The extension does not:
+
+- Modify Joomla core files
+- Modify administrator template files
+- Modify Bootstrap files
+- Load external JavaScript from a CDN
+- Use encrypted or obfuscated code
+- Store sensitive user data
+- Expose unnecessary public endpoints
+
+Please report security issues privately. See:
+
+[SECURITY.md](SECURITY.md)
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+Before submitting changes, please make sure they follow the project goals:
+
+- Keep the extension lightweight
+- Preserve Joomla core compatibility
+- Keep the interface accessible
+- Avoid unnecessary dependencies
+- Do not modify Joomla core, Atum, Bootstrap or template files
+- Keep language strings in language files
+- Use Joomla APIs and Web Asset Manager where possible
+
+See:
+
+[CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
@@ -159,30 +369,39 @@ Highlights:
 
 See:
 
-`updates/changelog.xml`
+[CHANGELOG.md](CHANGELOG.md)
 
 ---
 
-## Developer
+## Maintainer
 
-**JoomTheme**
+**Cüneyt**
 
-- Website: [https://joomtheme.com](https://joomtheme.com)
-- Support: [support@joomtheme.com](mailto:support@joomtheme.com)
-- Issues: [https://github.com/joomtheme/JT-Position-Finder/issues](https://github.com/joomtheme/JT-Position-Finder/issues)
+- JoomlaTR: [https://www.joomlatr.org](https://www.joomlatr.org)
+- GitHub: [JoomTheme](https://github.com/joomtheme)
+
+---
+
+## Project Links
+
+- Repository: [JT Position Finder](https://github.com/joomtheme/JT-Position-Finder)
+- Demo Screenshots: [docs/demo](https://github.com/joomtheme/JT-Position-Finder/tree/main/docs/demo)
+- Releases: [GitHub Releases](https://github.com/joomtheme/JT-Position-Finder/releases)
+- JoomlaTR: [https://www.joomlatr.org](https://www.joomlatr.org)
 
 ---
 
 ## License
 
-GNU General Public License version 2 or later.
+JT Position Finder is licensed under the **GNU General Public License v2 or later**.
+
+See:
+
+[LICENSE.txt](LICENSE.txt)
 
 ---
 
-## Credits and Trademark Notice
-
-JT Position Finder is an independent extension developed by JoomTheme with appreciation for the Joomla project and its community.
-
-The extension follows Joomla administrator UI conventions to feel familiar for Joomla users, but it is not an official Joomla core extension and is not affiliated with or endorsed by Open Source Matters, Inc.
-
-Joomla!® is a registered trademark of Open Source Matters, Inc.
+<p align="center">
+  <strong>JT Position Finder</strong><br>
+  Accessible module position selection for Joomla Administrator.
+</p>
