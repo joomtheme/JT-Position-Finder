@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension method="upgrade" type="plugin" group="system">
+    <name>System - JT Position Finder</name>
+    <author>JoomTheme</author>
+    <creationDate>2026-07-08</creationDate>
+    <copyright>(C) 2026 JoomTheme. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>support@joomtheme.com</authorEmail>
+    <authorUrl>https://joomtheme.com</authorUrl>
+    <version>1.0.3</version>
+    <description>PLG_SYSTEM_JTPOSITIONFINDER_XML_DESCRIPTION</description>
+    <element>jtpositionfinder</element>
+    <changelogurl>https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/changelog.xml</changelogurl>
+    <updateservers>
+        <server type="extension" priority="1" name="JT Position Finder Updates">https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/update.xml</server>
+    </updateservers>
+    <namespace path="src">JoomTheme\Plugin\System\Jtpositionfinder</namespace>
+    <files>
+        <folder plugin="jtpositionfinder">services</folder>
+        <folder>src</folder>
+    </files>
+    <media destination="plg_system_jtpositionfinder" folder="media">
+        <filename>joomla.asset.json</filename>
+        <folder>js</folder>
+    </media>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_jtpositionfinder.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_jtpositionfinder.sys.ini</language>
+        <language tag="tr-TR">language/tr-TR/plg_system_jtpositionfinder.ini</language>
+        <language tag="tr-TR">language/tr-TR/plg_system_jtpositionfinder.sys.ini</language>
+    </languages>
+</extension>
