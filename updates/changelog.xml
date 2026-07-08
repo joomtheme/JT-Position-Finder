@@ -3,14 +3,14 @@
     <changelog>
         <element>jtpositionfinder</element>
         <type>plugin</type>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <change>
             <item>Added Joomla update server metadata to the extension manifest.</item>
             <item>Added Joomla changelog URL to the extension manifest and update stream.</item>
             <item>Prepared official update stream metadata for GitHub Releases distribution.</item>
         </change>
         <fix>
-            <item>Changed the manifest name to a literal extension name so uninstall messages no longer show a raw language constant.</item>
+            <item>The manifest name has been changed to the extension name, and the raw language constant no longer appears in uninstallation messages.</item>
         </fix>
     </changelog>
     <changelog>
