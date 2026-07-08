@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "plg_system_jtpositionfinder",
+  "version": "1.0.3",
+  "description": "JT Position Finder administrator assets",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "plg_system_jtpositionfinder.admin",
+      "type": "script",
+      "uri": "plg_system_jtpositionfinder/jt-position-finder.js",
+      "attributes": {
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ],
+      "version": "1.0.3"
+    }
+  ]
+}
