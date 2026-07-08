@@ -21,6 +21,7 @@
   </a>
   <img src="https://img.shields.io/badge/Joomla-6.1%2B-green" alt="Joomla 6.1+">
   <img src="https://img.shields.io/badge/PHP-8.3%2B-purple" alt="PHP 8.3+">
+  <img src="https://img.shields.io/badge/Admin-Atum%20Compatible-informational" alt="Atum Compatible">
 </p>
 
 ---
@@ -34,6 +35,48 @@ When editing a Joomla module, finding the correct template position can be time-
 JT Position Finder adds a visual **Find position** helper directly below the native Joomla module position field. Administrators can search, preview and select available template module positions from an accessible modal interface.
 
 The plugin keeps Joomla’s original module position field intact. It does not replace Joomla core behavior, does not modify administrator template files and does not change Bootstrap or template assets.
+
+---
+
+## Latest Release
+
+Current stable version:
+
+```text
+v1.0.4
+```
+
+Installable package:
+
+```text
+plg_system_jtpositionfinder_v1.0.4.zip
+```
+
+Download the latest installable package from:
+
+[GitHub Releases](https://github.com/joomtheme/JT-Position-Finder/releases)
+
+---
+
+## What’s New in v1.0.4
+
+Version `1.0.4` improves the template search experience and makes the module position selection workflow clearer when multiple Joomla templates or template styles contain similar names.
+
+This update was based on real-world feedback about searching for **Cassiopeia** when another template group such as **Cassiopeia Extended** is also available.
+
+### Improvements
+
+- Improved search ranking for template groups
+- Exact template element matches are prioritized before partial matches
+- Searching for `Cassiopeia` should show the Cassiopeia group before Cassiopeia Extended
+- Added visible template element badges, such as `cassiopeia` or `cassiopeia_extended`
+- Changed the `Selected` label to `Current value`
+- Improved wording to clarify that Joomla stores the module position value, not the template group
+- Updated search placeholder text
+- Updated modal description text
+- Updated English and Turkish language strings
+- Updated package metadata to version `1.0.4`
+- Updated Joomla update server metadata
 
 ---
 
@@ -73,6 +116,8 @@ View demo screenshots here:
 - ESC key support
 - Focus-friendly interface
 - Screen-reader friendly modal structure
+- Clear **Current value** indicator for the stored module position value
+- Improved template group identification with element badges
 - Multilingual ready
 - English and Turkish language files included
 - Joomla Web Asset Manager based
@@ -99,12 +144,31 @@ It focuses on one clear purpose:
 
 ---
 
+## Important Note About Template Groups
+
+JT Position Finder selects the value stored in Joomla’s module position field.
+
+Joomla stores the module position name, for example:
+
+```text
+banner
+footer
+menu
+sidebar-right
+```
+
+It does not store the template group from which the position was selected.
+
+If two templates contain the same position name, the same value may appear under more than one template group. In that case, the **Current value** label means that the listed position name matches the value currently stored in the Joomla module position field.
+
+---
+
 ## Installation
 
 1. Download the latest installable package from GitHub Releases:
 
    ```text
-   plg_system_jtpositionfinder_v1.0.3.zip
+   plg_system_jtpositionfinder_v1.0.4.zip
    ```
 
 2. Open Joomla Administrator.
@@ -153,6 +217,29 @@ It focuses on one clear purpose:
 6. The selected position is inserted into the original Joomla module position field.
 
 The original Joomla field remains available and unchanged.
+
+---
+
+## Recommended Test Case
+
+To verify the improved search behavior in `v1.0.4`:
+
+1. Install or update to `v1.0.4`.
+2. Open Joomla Administrator.
+3. Go to **Content → Site Modules**.
+4. Create or edit a module.
+5. Click **Find position**.
+6. Search for:
+
+   ```text
+   Cassiopeia
+   ```
+
+Expected behavior:
+
+```text
+Cassiopeia should appear before Cassiopeia Extended when the exact template element matches.
+```
 
 ---
 
@@ -287,7 +374,7 @@ Download the latest installable package from:
 Package name:
 
 ```text
-plg_system_jtpositionfinder_v1.0.3.zip
+plg_system_jtpositionfinder_v1.0.4.zip
 ```
 
 ---
@@ -377,7 +464,7 @@ See:
 
 **JoomTheme**
 
-- JoomThenme: [https://www.joomtheme.com](https://www.joomtheme.com)
+- Website: [https://www.joomtheme.com](https://www.joomtheme.com)
 - GitHub: [JoomTheme](https://github.com/joomtheme)
 
 ---
@@ -387,7 +474,7 @@ See:
 - Repository: [JT Position Finder](https://github.com/joomtheme/JT-Position-Finder)
 - Demo Screenshots: [docs/demo](https://github.com/joomtheme/JT-Position-Finder/tree/main/docs/demo)
 - Releases: [GitHub Releases](https://github.com/joomtheme/JT-Position-Finder/releases)
-- JoomlaTR: [https://www.joomtheme.com](https://www.joomtheme.com)
+- JoomTheme: [https://www.joomtheme.com](https://www.joomtheme.com)
 
 ---
 
