@@ -3,6 +3,20 @@
     <changelog>
         <element>jtpositionfinder</element>
         <type>plugin</type>
+        <version>1.0.4</version>
+        <fix>
+            <item>Improved search relevance so exact template element matches, such as Cassiopeia, are listed before partial matches such as Cassiopeia Extended.</item>
+            <item>Clarified search wording to show that users search template groups and select module position values.</item>
+            <item>Changed the selected position badge text to Current value to avoid confusion when the same module position exists in multiple template groups.</item>
+            <item>Added template element badges to template group headings for clearer distinction between similar template names.</item>
+        </fix>
+        <update>
+            <item>Updated administrator JavaScript and language strings for clearer template group search behavior.</item>
+        </update>
+    </changelog>
+    <changelog>
+        <element>jtpositionfinder</element>
+        <type>plugin</type>
         <version>1.0.3</version>
         <security>
             <item>Added LICENSE.txt to the install package for GPL/JED compliance.</item>
