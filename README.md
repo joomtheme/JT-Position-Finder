@@ -377,7 +377,7 @@ See:
 
 **JoomTheme**
 
-- JoomlaTR: [https://www.joomtheme.com](https://www.joomtheme.com)
+- JoomThenme: [https://www.joomtheme.com](https://www.joomtheme.com)
 - GitHub: [JoomTheme](https://github.com/joomtheme)
 
 ---
