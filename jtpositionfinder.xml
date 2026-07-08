@@ -7,7 +7,7 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>support@joomtheme.com</authorEmail>
     <authorUrl>https://joomtheme.com</authorUrl>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <description>PLG_SYSTEM_JTPOSITIONFINDER_XML_DESCRIPTION</description>
     <element>jtpositionfinder</element>
     <changelogurl>https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/changelog.xml</changelogurl>
