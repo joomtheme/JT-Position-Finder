@@ -213,7 +213,7 @@
     description.className = 'text-muted mb-3';
     description.textContent = text(
       'modalDescription',
-      'Search positions grouped by template. Choose a position to fill the module position field.'
+      'Search template groups and module positions. Choose a position value to fill the Joomla module position field.'
     );
 
     const searchWrapper = document.createElement('div');
@@ -229,7 +229,7 @@
     search.id = searchId;
     search.className = 'form-control';
     search.autocomplete = 'off';
-    search.placeholder = text('searchPlaceholder', 'Type a template or position name');
+    search.placeholder = text('searchPlaceholder', 'Type a template group or module position')
     search.setAttribute('aria-controls', listId);
     search.setAttribute('aria-describedby', `${descId} ${statusId}`);
 
@@ -326,26 +326,31 @@
 
     state.list.replaceChildren();
 
-    (options.templates || []).forEach((template) => {
-      const matchesTemplate = normalise(`${template.name} ${template.title}`).includes(query);
-      const positions = (template.positions || []).filter((position) => {
-        if (!query || matchesTemplate) {
-          return true;
-        }
+    const templateResults = (options.templates || [])
+      .map((template, originalIndex) => buildTemplateResult(template, query, originalIndex))
+      .filter(Boolean);
 
-        return normalise(`${position.value} ${position.label}`).includes(query);
-      });
+    if (query) {
+      templateResults.sort(compareSearchResults);
+    }
 
-      if (!positions.length) {
-        return;
-      }
-
+    templateResults.forEach(({ template, positions }) => {
       const section = document.createElement('section');
       section.className = 'mb-4';
 
       const heading = document.createElement('h4');
-      heading.className = 'h5 d-flex align-items-center gap-2 mb-2';
-      heading.textContent = template.title || template.name;
+      heading.className = 'h5 d-flex align-items-center gap-2 mb-2 flex-wrap';
+
+      const headingText = document.createElement('span');
+      headingText.textContent = template.title || template.name;
+      heading.appendChild(headingText);
+
+      if (template.name) {
+        const templateBadge = document.createElement('span');
+        templateBadge.className = 'badge bg-secondary';
+        templateBadge.textContent = template.name;
+        heading.appendChild(templateBadge);
+      }
 
       if (template.isDefault) {
         const badge = document.createElement('span');
@@ -357,7 +362,7 @@
       const group = document.createElement('div');
       group.className = 'list-group';
       group.setAttribute('role', 'group');
-      group.setAttribute('aria-label', heading.textContent || template.name);
+      group.setAttribute('aria-label', `${template.title || template.name} ${template.name || ''}`.trim());
 
       positions.forEach((position) => {
         group.appendChild(createPositionButton(field, state, position, template, currentValue));
@@ -368,13 +373,7 @@
       state.list.appendChild(section);
     });
 
-    const customPositions = (options.customPositions || []).filter((position) => {
-      if (!query) {
-        return true;
-      }
-
-      return normalise(`${position.value} ${position.label}`).includes(query);
-    });
+    const customPositions = buildCustomResults(query);
 
     if (customPositions.length) {
       const section = document.createElement('section');
@@ -408,6 +407,144 @@
     state.status.textContent = count === 1
       ? text('resultSingular', '1 result found')
       : text('resultPlural', '%s results found').replace('%s', String(count));
+  }
+
+  function buildTemplateResult(template, query, originalIndex) {
+    const templateScore = query ? getTemplateScore(template, query) : 1000 + originalIndex;
+    const matchesTemplate = templateScore !== null;
+    const matchedPositions = [];
+
+    (template.positions || []).forEach((position, positionIndex) => {
+      const positionScore = query ? getPositionScore(position, query) : 1000 + positionIndex;
+
+      if (!query || matchesTemplate || positionScore !== null) {
+        matchedPositions.push({
+          ...position,
+          _score: matchesTemplate ? templateScore : positionScore,
+          _originalIndex: positionIndex,
+        });
+      }
+    });
+
+    if (!matchedPositions.length) {
+      return null;
+    }
+
+    if (query) {
+      matchedPositions.sort(comparePositionResults);
+    }
+
+    return {
+      template,
+      positions: matchedPositions,
+      score: matchesTemplate ? templateScore : Math.min(...matchedPositions.map((position) => position._score || 999)),
+      originalIndex,
+    };
+  }
+
+  function buildCustomResults(query) {
+    return (options.customPositions || [])
+      .map((position, originalIndex) => ({
+        ...position,
+        _score: query ? getPositionScore(position, query) : 1000 + originalIndex,
+        _originalIndex: originalIndex,
+      }))
+      .filter((position) => !query || position._score !== null)
+      .sort(comparePositionResults);
+  }
+
+  function getTemplateScore(template, query) {
+    const name = normalise(template.name);
+    const readableName = normalise(String(template.name || '').replace(/[_-]+/g, ' '));
+    const title = normalise(template.title);
+    const combined = normalise(`${template.name} ${template.title}`);
+
+    if (name === query || readableName === query) {
+      return 0;
+    }
+
+    if (title === query) {
+      return 5;
+    }
+
+    if (name.startsWith(query) || readableName.startsWith(query)) {
+      return 10;
+    }
+
+    if (title.startsWith(query)) {
+      return 20;
+    }
+
+    if (hasWholeWordMatch(name, query) || hasWholeWordMatch(readableName, query) || hasWholeWordMatch(title, query)) {
+      return 30;
+    }
+
+    if (combined.includes(query)) {
+      return 40;
+    }
+
+    return null;
+  }
+
+  function getPositionScore(position, query) {
+    const value = normalise(position.value);
+    const label = normalise(position.label);
+    const combined = normalise(`${position.value} ${position.label}`);
+
+    if (value === query || label === query) {
+      return 100;
+    }
+
+    if (value.startsWith(query) || label.startsWith(query)) {
+      return 110;
+    }
+
+    if (hasWholeWordMatch(value, query) || hasWholeWordMatch(label, query)) {
+      return 120;
+    }
+
+    if (combined.includes(query)) {
+      return 130;
+    }
+
+    return null;
+  }
+
+  function hasWholeWordMatch(value, query) {
+    if (!value || !query) {
+      return false;
+    }
+
+    const words = value.split(/[^a-z0-9]+/).filter(Boolean);
+
+    return words.includes(query);
+  }
+
+  function compareSearchResults(a, b) {
+    if (a.score !== b.score) {
+      return a.score - b.score;
+    }
+
+    const aDefault = a.template && a.template.isDefault ? 0 : 1;
+    const bDefault = b.template && b.template.isDefault ? 0 : 1;
+
+    if (aDefault !== bDefault) {
+      return aDefault - bDefault;
+    }
+
+    return strnatcasecmp(a.template.title || a.template.name, b.template.title || b.template.name) || a.originalIndex - b.originalIndex;
+  }
+
+  function comparePositionResults(a, b) {
+    if (a._score !== b._score) {
+      return a._score - b._score;
+    }
+
+    return strnatcasecmp(a.value || a.label, b.value || b.label) || a._originalIndex - b._originalIndex;
+  }
+
+  function strnatcasecmp(a, b) {
+    return String(a || '').localeCompare(String(b || ''), undefined, { numeric: true, sensitivity: 'base' });
   }
 
   function createPositionButton(field, state, position, template, currentValue) {
@@ -446,7 +583,7 @@
     if (isCurrent) {
       const currentBadge = document.createElement('span');
       currentBadge.className = 'badge bg-light text-dark';
-      currentBadge.textContent = text('selected', 'Selected');
+      currentBadge.textContent = text('selected', 'Current value');
       badges.appendChild(currentBadge);
     }
 
