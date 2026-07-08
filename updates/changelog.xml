@@ -3,30 +3,34 @@
     <changelog>
         <element>jtpositionfinder</element>
         <type>plugin</type>
-        <version>1.0.2</version>
-        <change>
-            <item>Added Joomla update server metadata to the extension manifest.</item>
-            <item>Added Joomla changelog URL to the extension manifest and update stream.</item>
-            <item>Prepared official update stream metadata for GitHub Releases distribution.</item>
-        </change>
+        <version>1.0.3</version>
+        <security>
+            <item>Added LICENSE.txt to the install package for GPL/JED compliance.</item>
+            <item>Hardened templateDetails.xml parsing with libxml internal errors and LIBXML_NONET.</item>
+        </security>
         <fix>
-            <item>The manifest name has been changed to the extension name, and the raw language constant no longer appears in uninstallation messages.</item>
+            <item>Removed automatic plugin enable installer script from the install package.</item>
+            <item>Added modal double-open protection and safer body modal-open handling.</item>
+            <item>Added explicit manifest element value and synchronized asset versions.</item>
         </fix>
     </changelog>
     <changelog>
         <element>jtpositionfinder</element>
         <type>plugin</type>
+        <version>1.0.2</version>
+        <update>
+            <item>Added Joomla update server metadata to the extension manifest.</item>
+            <item>Added Joomla changelog URL to the extension manifest and update stream.</item>
+            <item>Prepared official update stream metadata for GitHub Releases distribution.</item>
+        </update>
+    </changelog>
+    <changelog>
+        <element>jtpositionfinder</element>
+        <type>plugin</type>
         <version>1.0.0</version>
-        <addition>
+        <update>
             <item>Initial stable release of JT Position Finder.</item>
-            <item>Added an accessible module position finder to Joomla administrator module edit screens.</item>
-            <item>Added template-grouped position browsing with search, default template indicator, usage badges and custom position input.</item>
-        </addition>
-        <change>
-            <item>Uses Joomla Web Asset Manager, Atum administrator template styling and Bootstrap 5 classes without a custom stylesheet.</item>
-        </change>
-        <note>
-            <item>Designed for Joomla 6 administrator module edit screens.</item>
-        </note>
+            <item>Added template-grouped position browsing with search, usage badges and custom position input.</item>
+        </update>
     </changelog>
 </changelogs>
