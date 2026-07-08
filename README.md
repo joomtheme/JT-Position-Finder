@@ -375,9 +375,9 @@ See:
 
 ## Maintainer
 
-**Cüneyt**
+**JoomTheme**
 
-- JoomlaTR: [https://www.joomlatr.org](https://www.joomlatr.org)
+- JoomlaTR: [https://www.joomtheme.com](https://www.joomtheme.com)
 - GitHub: [JoomTheme](https://github.com/joomtheme)
 
 ---
@@ -387,7 +387,7 @@ See:
 - Repository: [JT Position Finder](https://github.com/joomtheme/JT-Position-Finder)
 - Demo Screenshots: [docs/demo](https://github.com/joomtheme/JT-Position-Finder/tree/main/docs/demo)
 - Releases: [GitHub Releases](https://github.com/joomtheme/JT-Position-Finder/releases)
-- JoomlaTR: [https://www.joomlatr.org](https://www.joomlatr.org)
+- JoomlaTR: [https://www.joomtheme.com](https://www.joomtheme.com)
 
 ---
 
