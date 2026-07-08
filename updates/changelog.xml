@@ -1,1 +1,32 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<changelogs>
+    <changelog>
+        <element>jtpositionfinder</element>
+        <type>plugin</type>
+        <version>1.0.1</version>
+        <change>
+            <item>Added Joomla update server metadata to the extension manifest.</item>
+            <item>Added Joomla changelog URL to the extension manifest and update stream.</item>
+            <item>Prepared official update stream metadata for GitHub Releases distribution.</item>
+        </change>
+        <fix>
+            <item>Changed the manifest name to a literal extension name so uninstall messages no longer show a raw language constant.</item>
+        </fix>
+    </changelog>
+    <changelog>
+        <element>jtpositionfinder</element>
+        <type>plugin</type>
+        <version>1.0.0</version>
+        <addition>
+            <item>Initial stable release of JT Position Finder.</item>
+            <item>Added an accessible module position finder to Joomla administrator module edit screens.</item>
+            <item>Added template-grouped position browsing with search, default template indicator, usage badges and custom position input.</item>
+        </addition>
+        <change>
+            <item>Uses Joomla Web Asset Manager, Atum administrator template styling and Bootstrap 5 classes without a custom stylesheet.</item>
+        </change>
+        <note>
+            <item>Designed for Joomla 6 administrator module edit screens.</item>
+        </note>
+    </changelog>
+</changelogs>

@@ -1,1 +1,25 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>JT Position Finder</name>
+        <description>Accessible module position finder for Joomla administrator module edit screens.</description>
+        <element>jtpositionfinder</element>
+        <type>plugin</type>
+        <folder>system</folder>
+        <client>site</client>
+        <version>1.0.1</version>
+        <infourl title="JT Position Finder">https://github.com/joomtheme/JT-Position-Finder/releases/tag/v1.0.1</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/joomtheme/JT-Position-Finder/releases/download/v1.0.1/plg_system_jtpositionfinder_v1.0.1.zip</downloadurl>
+        </downloads>
+        <changelogurl>https://raw.githubusercontent.com/joomtheme/JT-Position-Finder/main/updates/changelog.xml</changelogurl>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>JoomTheme</maintainer>
+        <maintainerurl>https://joomtheme.com</maintainerurl>
+        <targetplatform name="joomla" version="6\.[0-9]+" />
+        <php_minimum>8.3</php_minimum>
+        <sha256>874b5d64de2a12a0deaa0d83b2ff9039cfaacafb5d9ba17b7603df64d366062f</sha256>
+    </update>
+</updates>
