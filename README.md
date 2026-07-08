@@ -167,9 +167,9 @@ See:
 
 **JoomTheme**
 
-Website: [https://joomtheme.com](https://joomtheme.com)  
-Support: [support@joomtheme.com](mailto:support@joomtheme.com)
-Issues: [https://github.com/joomtheme/JT-Position-Finder/issues](https://github.com/joomtheme/JT-Position-Finder/issues)  
+- Website: [https://joomtheme.com](https://joomtheme.com)
+- Support: [support@joomtheme.com](mailto:support@joomtheme.com)
+- Issues: [https://github.com/joomtheme/JT-Position-Finder/issues](https://github.com/joomtheme/JT-Position-Finder/issues)
 
 ---
 
